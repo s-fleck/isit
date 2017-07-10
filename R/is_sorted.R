@@ -1,6 +1,6 @@
-#' Test if Object is Sorted
+#' Is an Object Sorted?
 #' 
-#' `is_sorted()` tests if an object is sorted (either in ascending or 
+#' `is_sorted()` tests if an object is sorted (in ascending or 
 #' descending order). Objects of length `<= 1` are assumed sorted. 
 #' 
 #' @section Implementation:
@@ -77,7 +77,7 @@ is_ascending <- function(x, na.rm = FALSE){
 
 #' @export
 is_ascending.default <- function(x, na.rm = TRUE){
-  is.unsorted(x, na.rm = FALSE, strictly = FALSE)
+  !is.unsorted(x, na.rm = FALSE, strictly = FALSE)
 }
 
 
@@ -129,7 +129,7 @@ is_descending <- function(x, na.rm = FALSE){
 
 #' @export
 is_descending.default <- function(x, na.rm = TRUE){
-  is.unsorted(rev(x), na.rm = FALSE, strictly = FALSE)
+  !is.unsorted(rev(x), na.rm = FALSE, strictly = FALSE)
 }
 
 

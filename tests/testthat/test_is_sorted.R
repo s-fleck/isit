@@ -1,4 +1,6 @@
-test_that('is_sorted', {
+context('is_sorted')
+
+test_that('is_sorted works for integer and numeric vectors', {
   
   tdat <- 1:1000
   
