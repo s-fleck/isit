@@ -1,0 +1,21 @@
+Package: isit
+Type: Package
+Title: Efficient Predicates
+Version: 0.0.1.9000
+Date: 2017-07-06
+Authors@R: person("Stefan", "Fleck", email = "stefan.fleck@statistik.gv.at", role = c("aut", "cre"))
+Maintainer: Stefan Fleck <stefan.fleck@statistik.gv.at>
+Description: Provides an array of snake-case predicates. The predicates all
+  come with on_failure functions, so that they produce informative error messages
+  when used together with the assertthat package.
+License: MIT + file LICENSE
+Imports:
+  Rcpp (>= 0.12.11.4),
+  assertthat
+LinkingTo: Rcpp
+Suggests: testthat,
+    knitr,
+    rmarkdown
+RoxygenNote: 6.0.1
+Roxygen: list(markdown = TRUE)
+VignetteBuilder: knitr
