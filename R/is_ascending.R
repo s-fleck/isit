@@ -8,21 +8,23 @@
 #' 
 #' @section Implementation:
 #' 
-#' `is_ascending()` and `is_descending()` are generics.
+#' `is_ascending()` and `is_descending()` are generics, so you can easily 
+#' implement your own methods if you want to.
 #'  
 #' The methods for numeric and integer vectors are implemented
 #' in C++. `is_ascending()` has about the same performance as
-#' `!base::is.unsorted()`, but `is_descending(x)` will be slighlty faster 
+#' `!base::is.unsorted()`, but `is_descending(x)`is slighlty faster 
 #' than `!base::is.unsorted(-x)` as it does not need to reverse / negate the
 #' vector first. 
 #' 
 #' The default methods fall back to wrapping [base::is.unsorted()], and 
-#' therefore support all the same classes (character, complex, raw and others).
+#' therefore support all the same classes (character, complex, raw and others)
+#' at the same performance.
 #' 
-#' @param x any R object (see `methods(is_ascending)` and `methods(is_desscending)`).
+#' @param x any R object.
 #' @param na.rm logical. Remove `NA` values before testing.
 #' 
-#' @return logical sclar.
+#' @return a logical sclar.
 #' @seealso [base::is.unsorted()]
 #'
 #' @export
