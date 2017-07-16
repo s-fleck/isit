@@ -16,13 +16,13 @@
 #' @examples
 #' # evaluates to TRUE
 #' looks_like_integer(1)
-#' looks_like_integer('1')
-#' looks_like_integer('1.0')
+#' looks_like_integer("1")
+#' looks_like_integer("1.0")
 #'
 #' # evaluates to FALSE
 #'
 #' looks_like_integer(1.1)
-#' looks_like_integer('1.1')
+#' looks_like_integer("1.1")
 looks_like_integer <- function(
   x,
   na_value = FALSE
