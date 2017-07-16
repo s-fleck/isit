@@ -6,7 +6,7 @@
 using namespace Rcpp;
 
 // is_ascending_numeric
-Rcpp::LogicalVector is_ascending_numeric(Rcpp::NumericVector x);
+bool is_ascending_numeric(Rcpp::NumericVector x);
 RcppExport SEXP _isit_is_ascending_numeric(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -17,7 +17,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // is_strictly_ascending_numeric
-Rcpp::LogicalVector is_strictly_ascending_numeric(Rcpp::NumericVector x);
+bool is_strictly_ascending_numeric(Rcpp::NumericVector x);
 RcppExport SEXP _isit_is_strictly_ascending_numeric(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -28,7 +28,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // is_descending_numeric
-Rcpp::LogicalVector is_descending_numeric(Rcpp::NumericVector x);
+bool is_descending_numeric(Rcpp::NumericVector x);
 RcppExport SEXP _isit_is_descending_numeric(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -39,7 +39,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // is_strictly_descending_numeric
-Rcpp::LogicalVector is_strictly_descending_numeric(Rcpp::NumericVector x);
+bool is_strictly_descending_numeric(Rcpp::NumericVector x);
 RcppExport SEXP _isit_is_strictly_descending_numeric(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -50,7 +50,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // is_ascending_integer
-Rcpp::LogicalVector is_ascending_integer(Rcpp::IntegerVector x);
+bool is_ascending_integer(Rcpp::IntegerVector x);
 RcppExport SEXP _isit_is_ascending_integer(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -61,7 +61,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // is_strictly_ascending_integer
-Rcpp::LogicalVector is_strictly_ascending_integer(Rcpp::IntegerVector x);
+bool is_strictly_ascending_integer(Rcpp::IntegerVector x);
 RcppExport SEXP _isit_is_strictly_ascending_integer(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -72,7 +72,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // is_descending_integer
-Rcpp::LogicalVector is_descending_integer(Rcpp::IntegerVector x);
+bool is_descending_integer(Rcpp::IntegerVector x);
 RcppExport SEXP _isit_is_descending_integer(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
@@ -83,7 +83,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // is_strictly_descending_integer
-Rcpp::LogicalVector is_strictly_descending_integer(Rcpp::IntegerVector x);
+bool is_strictly_descending_integer(Rcpp::IntegerVector x);
 RcppExport SEXP _isit_is_strictly_descending_integer(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;

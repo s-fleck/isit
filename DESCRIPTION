@@ -1,7 +1,7 @@
 Package: isit
 Type: Package
 Title: Efficient Predicates
-Version: 0.0.1.9001
+Version: 0.0.1.9002
 Date: 2017-07-06
 Authors@R: person("Stefan", "Fleck", email = "stefan.fleck@statistik.gv.at", role = c("aut", "cre"))
 Maintainer: Stefan Fleck <stefan.fleck@statistik.gv.at>
@@ -10,7 +10,7 @@ Description: Provides an array of snake-case predicates. The predicates all
   when used together with the assertthat package.
 License: MIT + file LICENSE
 Imports:
-  Rcpp (>= 0.12.11.4),
+  Rcpp (>= 0.12.12),
   assertthat
 LinkingTo: Rcpp
 Suggests: testthat,

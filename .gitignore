@@ -8,3 +8,4 @@ src/*.dll
 man
 inst/doc
 *.html
+.directory
