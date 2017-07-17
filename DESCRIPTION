@@ -10,7 +10,7 @@ Description: Provides an array of snake-case predicates. The predicates all
   when used together with the assertthat package.
 License: MIT + file LICENSE
 Imports:
-  Rcpp (>= 0.12.12),
+  Rcpp (>= 0.12.11),
   assertthat
 LinkingTo: Rcpp
 Suggests: testthat,
