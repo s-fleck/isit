@@ -1,5 +1,12 @@
-# isit 0.0.1.9000
+# isit 0.0.2.9000
 
-* inition version
-* added is_sorted, is_ascending and is_descending
+* Removed RCPP dependency for better compatibility
+* added is_free_memory()
+
+
+# isit 0.0.1
+
+* initial version
+* added is_sorted(), is_ascending() and is_descending()
 * migrated all predicates from hammr
+
