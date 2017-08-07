@@ -48,7 +48,7 @@ is_strictly_ascending <- function(x, na.rm = FALSE){
 
 #' @export
 is_strictly_ascending.default <- function(x, na.rm = FALSE){
-  is.unsorted(x, na.rm = na.rm, strictly = TRUE)
+  !is.unsorted(x, na.rm = na.rm, strictly = TRUE)
 }
 
 
@@ -84,7 +84,7 @@ is_strictly_descending <- function(x, na.rm = FALSE){
 
 #' @export
 is_strictly_descending.default <- function(x, na.rm = FALSE){
-  is.unsorted(rev(x), na.rm = na.rm, strictly = TRUE)
+  !is.unsorted(rev(x), na.rm = na.rm, strictly = TRUE)
 }
 
 
