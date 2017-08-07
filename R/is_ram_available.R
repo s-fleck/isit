@@ -1,4 +1,14 @@
 #' Check for Free Phyiscal Memory on Windows and Linux Machines
+#' 
+#' Returns / tests for the available system memory as reported by the operating
+#' system. This might not work on all Versions of Windows or Linux, so special
+#' care is required when using this function.
+#' 
+#' On Windows, this uses `wmic OS get FreePhysicalMemory /Value`. 
+#' 
+#' On Linux `MemAvailable` as listed in `/proc/meminfo` is used as source for 
+#' the available memory. If `MemAvailable` does not exist, `MemFree` is used as 
+#' a fallback.
 #'
 #' @param x Minimum amount of allowed free physical memory
 #' @param unit any of `b`, `kb`, `mb`, or, `gb`. The JDEC standard is used for
@@ -6,13 +16,15 @@
 #'   the operating system usually reports.
 #'
 #' @return `is_ram_available()` returns `TRUE` if at least `x` system memory
-#' is available, `FALSE` otherwise.
+#' is available, `FALSE` otherwise. 
 #' @seealso
 #'   \url{https://stackoverflow.com/questions/27788968/how-would-one-check-the-system-memory-available-using-r-on-a-windows-machine}
 #'
 #'   \url{https://stackoverflow.com/questions/36372397/r-how-to-get-amount-of-memory-available-to-r-on-linux}
 #'
 #'   \url{https://superuser.com/questions/980820/what-is-the-difference-between-memfree-and-memavailable-in-proc-meminfo}
+#'   
+#'   \url{https://www.cyberciti.biz/faq/linux-check-memory-usage/}
 #' @export
 #'
 #' @examples
@@ -63,7 +75,19 @@ get_available_ram_on_windows <- function(unit){
 
 
 get_available_ram_on_linux <- function(unit){
-  res <- as.integer(system("/usr/bin/awk '/MemAvailable/ {print $2}' /proc/meminfo", intern=TRUE))
+  
+  x  <- system2("cat", "/proc/meminfo", stdout = TRUE)
+  free <- x[grepl("^MemAvailable.*", x)]
+  
+  if(is_empty(free)){
+    free <- x[grepl("^MemFree.*", x)]
+  }
+  
+  res <- gsub("^MemFree:\\s*", "", free)
+  res <- gsub("\\s.*kB$", "", res)
+  res <- as.integer(res)
+
+  assert_that(!is.na(res))
   convert_bytes(res, unit)
 }
 
