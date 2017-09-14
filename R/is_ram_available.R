@@ -37,6 +37,14 @@ is_ram_available <- function(x, unit = "kb"){
 }
 
 
+assertthat::on_failure(is_ram_available) <- function(call, env){
+  sprintf(
+    "Not enough system memory available (required: %s%s)",
+    call$x,
+    call$unit
+  )
+}
+
 
 
 #' @return `get_available_ram()` returns a the available system memory  as a
