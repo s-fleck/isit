@@ -3,6 +3,7 @@
 * Removed RCPP dependency for better compatibility
 * added `is_free_memory()`
 * added `duplicated_combinations()`
+* added `is_try_error()`
 
 
 # isit 0.0.1
