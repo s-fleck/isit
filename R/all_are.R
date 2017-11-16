@@ -117,7 +117,6 @@ all_are_identical <- function(x, empty_value = FALSE) {
 #' Test if all elements of a vector are unique
 #'
 #' @inheritParams all_are_identical
-#' @param silent logical. Suppress Warnings
 #'
 #' @return TRUE/FALSE
 #'
@@ -130,38 +129,29 @@ all_are_identical <- function(x, empty_value = FALSE) {
 #' all_are_identical(c(1,2,3))
 #' all_are_identical(c(1,1,1))
 #'
-all_are_distinct <- function(x, empty_value = FALSE, silent = FALSE){
+all_are_distinct <- function(
+  x, 
+  empty_value = FALSE
+){
   assert_that(length(empty_value) <= 1)
-  assert_that(is.flag(silent))
+
+  if (identical(length(x), 1L)) {
+    return(TRUE)
   
-  if(length(x) <= 1L){
-    if(identical(length(x), 1L)){
-      res <- TRUE
-      if(!silent) warning("'x' consists of only one element")
-      
-      
-    } else if (identical(length(x), 0L)){
-      res <- empty_value
-      if(!silent){
-        if(is.null(x)){
-          warning("'x' is NULL")
-        } else {
-          warning("'x' is an empty vector")
-        }
-      }
-    }
-    
+  } else if (length(x) > 1L) {
+    return(identical(length(unique(x)), length(x)))
     
   } else {
-    res <- identical(length(unique(x)), length(x))
+    
+    if(is.null(x)){
+      warning("'x' is NULL")
+    } else {
+      warning("'x' is an empty vector")
+    }
+    
+    return(empty_value)
   }
-  
-  assert_that(
-    identical(res, TRUE) ||
-      identical(res, FALSE) ||
-      identical(res, empty_value)
-  )
-  
+
   return(res)
 }
 
