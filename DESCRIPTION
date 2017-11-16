@@ -1,7 +1,7 @@
 Package: isit
 Type: Package
 Title: Efficient Predicates
-Version: 0.0.1.9002
+Version: 0.0.1.9003
 Date: 2017-07-06
 Authors@R: person("Stefan", "Fleck", email = "stefan.fleck@statistik.gv.at", role = c("aut", "cre"))
 Maintainer: Stefan Fleck <stefan.fleck@statistik.gv.at>

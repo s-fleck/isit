@@ -96,26 +96,19 @@ all_with_warning <- function(
 all_are_identical <- function(x, empty_value = FALSE) {
   assert_that(length(empty_value) <= 1)
   
-  # Check inputs
-  if(length(x) <= 1L){
-    if(identical(length(x), 1L)){
-      warning("'x' consists of only one element")
-      res <- TRUE
-    } else if (identical(length(x), 0L)){
-      if(is.null(x)){
-        warning("'x' is NULL")
-      } else {
-        warning("'x' is an empty vector")
-      }
-      res <- empty_value
-    }
+  if (length(x) > 0L) {
+    return(identical(length(unique(x)), 1L))
+    
   } else {
-    res <- identical(length(unique(x)), 1L)
+   
+    if(is.null(x)){
+      warning("'x' is NULL")
+    } else {
+      warning("'x' is an empty vector")
+    }
+    
+    return(empty_value)
   }
-  
-  assert_that(is.flag(res) || identical(res, empty_value))
-  
-  return(res)
 }
 
 

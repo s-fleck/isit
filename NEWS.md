@@ -4,6 +4,7 @@
 * added `is_free_memory()`
 * added `duplicated_combinations()`
 * added `is_try_error()`
+* removed warning for `all_are_identical()` if `x` is of length 1
 
 
 # isit 0.0.1
