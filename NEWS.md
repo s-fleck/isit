@@ -7,6 +7,7 @@
 * removed warning for `all_are_identical()` if `x` is of length 1
 * removed warning for `all_are_distinct()` if `x` is of length 1. Also removed 
   "silent" argument of function.
+* added is_equal to check for equality of floating point numbers
 
 
 # isit 0.0.1
