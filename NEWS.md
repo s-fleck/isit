@@ -7,7 +7,8 @@
 * removed warning for `all_are_identical()` if `x` is of length 1
 * removed warning for `all_are_distinct()` if `x` is of length 1. Also removed 
   "silent" argument of function.
-* added is_equal to check for equality of floating point numbers
+* added `equalish()` to check for equality of floating point numbers
+
 
 
 # isit 0.0.1
@@ -15,4 +16,3 @@
 * initial version
 * added `is_sorted()`, `is_ascending()` and `is_descending()`
 * migrated all predicates from hammr
-
