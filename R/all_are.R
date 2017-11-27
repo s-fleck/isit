@@ -9,10 +9,11 @@
 #'   `FALSE`, `NA`)
 #' @param silent `logical`. If `TRUE` no warning is thrown.
 #'
-#' @return `logical` or `NA`. If `FALSE` or `NA` are returned, a warning will be
-#'   thrown containing the names (if `x` is named) or indices of the values that
-#'   are not `TRUE`. In addition, the indices of those values will be attached
-#'   as an attribute to the returned logical scalar (see examples)
+#' @return `logical` scalar with attributes. If `all(x)` evaluates to `FALSE` or
+#'   `NA`, a warning will be thrown containing the names (if `x` is
+#'   named) or indices of the values that are not `TRUE`. In addition, the
+#'   indices of those values will be attached as an attribute to the returned
+#'   logical scalar (see examples)
 #'
 #' @md
 #' @seealso [all()]
@@ -64,11 +65,11 @@ all_with_warning <- function(
       }
       failed_msg <- paste(failed_msg, collapse = ', ')
       
-      warn        <- sprintf('Not TRUE: %s', failed_msg)
+      warn        <- sprintf("Not TRUE: %s", failed_msg)
       warning(warn)
     }
     
-    attr(is_all_true, 'failed') <- failed_idx
+    attr(is_all_true, "failed") <- failed_idx
     return(is_all_true)
   }
 }
@@ -151,8 +152,6 @@ all_are_distinct <- function(
     
     return(empty_value)
   }
-
-  return(res)
 }
 
 
@@ -174,7 +173,7 @@ as_scalar <- function(x){
   if(is.scalar(res)){
     return(res)
   } else {
-    stop('Not all elements of x are identical')
+    stop("Not all elements of x are identical")
   }
 }
 
