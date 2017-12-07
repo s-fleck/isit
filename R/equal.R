@@ -11,7 +11,7 @@
 #'
 #' @examples
 #' a - b == 0.5
-#' is_equal(a-b, 0.5)
+#' equalish(a-b, 0.5)
 #' 
 equalish <- function(x, y, tolerance = .Machine$double.eps ^ 0.5){
   assert_that(identical(length(tolerance), 1L) && is.numeric(tolerance))
