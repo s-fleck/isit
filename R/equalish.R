@@ -20,6 +20,14 @@ equalish <- function(x, y, tolerance = .Machine$double.eps ^ 0.5){
 
 
 
+#' @export
+equalish_frac <- function(x, y, tolerance = .Machine$double.eps ^ 0.5){
+  (abs(x - y) / ((x+y) / 2)) < tolerance
+}
+
+
+
+
 
 #' Check for equality but treat NAs like normal values
 #'
