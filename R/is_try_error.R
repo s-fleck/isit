@@ -1,6 +1,6 @@
 #' Check If Object is a Try-Error
 #'
-#' @param x Any \r object
+#' @param x Any \R object
 #'
 #' @return A logical sclar
 #' @export

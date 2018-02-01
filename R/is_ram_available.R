@@ -91,7 +91,7 @@ get_available_ram_on_linux <- function(unit){
     free <- x[grepl("^MemFree.*", x)]
   }
   
-  res <- gsub("^MemFree:\\s*", "", free)
+  res <- gsub("^.*:\\s*", "", free)
   res <- gsub("\\s.*kB$", "", res)
   res <- as.integer(res)
 
