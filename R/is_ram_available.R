@@ -70,7 +70,12 @@ get_available_ram <- function(unit = "kb"){
 
 
 get_available_ram_on_windows <- function(unit){
-  x <- system2("wmic", args =  "OS get FreePhysicalMemory /Value", stdout = TRUE)
+  x <- system2(
+    "wmic", 
+    args =  "OS get FreePhysicalMemory /Value", 
+    stdout = TRUE
+  )
+  
   x <- x[grepl("FreePhysicalMemory", x)]
   x <- gsub("FreePhysicalMemory=", "", x, fixed = TRUE)
   x <- gsub("\r", "", x, fixed = TRUE)
@@ -87,7 +92,7 @@ get_available_ram_on_linux <- function(unit){
   x  <- system2("cat", "/proc/meminfo", stdout = TRUE)
   free <- x[grepl("^MemAvailable.*", x)]
   
-  if(is_empty(free)){
+  if (is_empty(free)){
     free <- x[grepl("^MemFree.*", x)]
   }
   
@@ -103,11 +108,12 @@ get_available_ram_on_linux <- function(unit){
 
 
 convert_bytes <- function(x, unit){
-  switch(unit,
-         "b"  = x * 1024L,
-         "kb" = x,
-         "mb" = x / 1024,
-         "gb" = x / 1024^2,
-         stop("Unit not valid")
+  switch(
+    unit,
+    "b"  = x * 1024L,
+    "kb" = x,
+    "mb" = x / 1024,
+    "gb" = x / 1024^2,
+    stop("Unit not valid")
   )
 }

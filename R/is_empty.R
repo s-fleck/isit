@@ -8,7 +8,7 @@
 #' @return logical. `TRUE` if `x` is emtpy. 
 #' @export
 is_empty <- function(x){
-  UseMethod('is_empty')
+  UseMethod("is_empty")
 } 
  
 

@@ -3,6 +3,6 @@ as_validation <- function(x){
 
   chk <- unlist(x)
   res <- all(chk)
-  attr(res, 'errors') <- names(chk)[-which(chk)]
+  attr(res, "errors") <- names(chk)[-which(chk)]
   res
 }

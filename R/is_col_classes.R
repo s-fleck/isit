@@ -19,7 +19,7 @@ is_col_classes <- function(dat, classes, method = "identical"){
   dat <- as.list(dat)
   
 
-  if(identical(method, "all")){
+  if (identical(method, "all")){
     assert_that(all(names(classes) %in% names(dat)))
   } else if (identical(method, "any")){
     assert_that(any(names(classes) %in% names(dat)))
@@ -33,7 +33,7 @@ is_col_classes <- function(dat, classes, method = "identical"){
   res <- rep(FALSE, length(names(classes)))
   names(res) <- names(classes)
   
-  for(i in names(classes)){
+  for (i in names(classes)){
     res[i] <- i %in% names(dat) && classes[[i]] == class(dat[[i]])
   }
   
@@ -51,7 +51,7 @@ assertthat::on_failure(is_col_classes) <- function(call, env){
   missing <- names(classes)[!names(classes) %in% names(dat)]
   wrong   <- character()
   
-  for(i in present){
+  for (i in present){
     col    <- i
     is     <- class(dat[[i]])
     should <- classes[[i]]
@@ -68,11 +68,11 @@ assertthat::on_failure(is_col_classes) <- function(call, env){
   
   msg <- character()
   
-  if(length(missing) > 0){
+  if (length(missing) > 0){
     msg <- paste0("Missing from dat: ", missing, ".\n")
   }
   
-  if(length(wrong) > 0){
+  if (length(wrong) > 0){
     wrong <- substr(wrong, 1, nchar(wrong) - 2)
     msg <- paste0(msg, "Wrong classes: ", wrong)
   }

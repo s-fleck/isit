@@ -1,0 +1,22 @@
+---
+output: github_document
+---
+
+# isit
+
+[![CRAN status](http://www.r-pkg.org/badges/version/isit)](https://cran.r-project.org/package=isit)
+
+## Overview
+
+isit contains predicate functions - functions that return TRUE or FALSE -
+that I use across my own packages. This package is very simple and probably
+not very useful to the generel public (yet)
+
+
+## Installation
+
+```
+# You can also install the development version from GitHub:
+# install.packages("devtools")
+devtools::install_github("s-fleck/isit")
+```

@@ -38,18 +38,16 @@ all_with_warning <- function(
   assert_that(is.scalar(na_value))
   assert_that(is.flag(na_value) || is.na(na_value))
   assert_that(is.flag(silent))
-  
+
   x_lst <- as.list(x)
-  
   assert_that(isTRUE(unique(vapply(x_lst, is.logical, logical(1)))))
-  
-  
+
   x_lst[is.na(x_lst)] <- na_value
   x_vec <- as.logical(x_lst)
   is_all_true <- all(x_vec)
   
   
-  if(isTRUE(is_all_true)){
+  if (isTRUE(is_all_true)){
     return(TRUE)
     
   } else {
@@ -57,13 +55,13 @@ all_with_warning <- function(
     failed_names <- names(x_lst)[failed_idx]
     
     # construct warning
-    if(!silent){
-      if(is.null(failed_names)){
+    if (!silent){
+      if (is.null(failed_names)){
         failed_msg <- failed_idx
       } else {
         failed_msg <- failed_names
       }
-      failed_msg <- paste(failed_msg, collapse = ', ')
+      failed_msg <- paste(failed_msg, collapse = ", ")
       
       warn        <- sprintf("Not TRUE: %s", failed_msg)
       warning(warn)
@@ -102,7 +100,7 @@ all_are_identical <- function(x, empty_value = FALSE) {
     
   } else {
    
-    if(is.null(x)){
+    if (is.null(x)){
       warning("'x' is NULL")
     } else {
       warning("'x' is an empty vector")
@@ -144,7 +142,7 @@ all_are_distinct <- function(
     
   } else {
     
-    if(is.null(x)){
+    if (is.null(x)){
       warning("'x' is NULL")
     } else {
       warning("'x' is an empty vector")
@@ -170,10 +168,9 @@ all_are_distinct <- function(
 #' @export
 as_scalar <- function(x){
   res <- unique(x)
-  if(is.scalar(res)){
+  if (is.scalar(res)){
     return(res)
   } else {
     stop("Not all elements of x are identical")
   }
 }
-

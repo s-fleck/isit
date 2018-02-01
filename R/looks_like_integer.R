@@ -42,7 +42,7 @@ looks_like_integer <- function(
 
 #' @rdname looks_like_integer
 looks_like_scalar_integer <- function(x, na_value = FALSE){
-  if(is.scalar(x)){
+  if (is.scalar(x)){
     return(looks_like_integer(x, na_value))
   } else {
     return(FALSE)

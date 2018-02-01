@@ -1,4 +1,4 @@
-# isit 0.0.1.9000
+# isit 0.0.2
 
 * Removed RCPP dependency for better compatibility
 * added `is_free_memory()`
@@ -8,6 +8,9 @@
 * removed warning for `all_are_distinct()` if `x` is of length 1. Also removed 
   "silent" argument of function.
 * added `equalish()` to check for equality of floating point numbers
+* added `equalish_frac()` to check for equality of floating point numbers based
+  on the relative difference (expressed as a fraction) of both numbers.
+
 
 
 

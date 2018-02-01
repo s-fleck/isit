@@ -21,22 +21,22 @@
 #' ```
 #'
 #' }
-is_html_output = function() {
-  knitr::opts_knit$get("rmarkdown.pandoc.to") =="html"
+is_html_output <- function() {
+  knitr::opts_knit$get("rmarkdown.pandoc.to") == "html"
 }
 
 
 
 #' @rdname is_html_output
 #' @export
-is_pdf_output = function() {
-  knitr::opts_knit$get("rmarkdown.pandoc.to") =="latex"
+is_pdf_output <- function() {
+  knitr::opts_knit$get("rmarkdown.pandoc.to") == "latex"
 }
 
 
 
 #' @rdname is_html_output
 #' @export
-is_docx_output = function() {
-  knitr::opts_knit$get("rmarkdown.pandoc.to") =="docx"
+is_docx_output <- function() {
+  knitr::opts_knit$get("rmarkdown.pandoc.to") == "docx"
 }
