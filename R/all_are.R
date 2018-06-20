@@ -174,3 +174,29 @@ as_scalar <- function(x){
     stop("Not all elements of x are identical")
   }
 }
+
+
+
+
+#' Is Vector a Candidate Key
+#' 
+#' Checks if all elements of the atomic vector `x` are unique and not `NA` or
+#' infinite.
+#'
+#' @param x a atomic vector
+#'
+#' @return `TRUE/FALSE`
+#' @export
+#'
+#' @examples
+#' 
+#' is_candidate_key(c(1, 2, 3))
+#' is_candidate_key(c(1, 2, NA))
+#' is_candidate_key(c(1, 2, Inf))
+#' 
+is_candidate_key <- function(x){
+  is.atomic(x) && 
+  all(!is.infinite(x)) &&
+  !any(is.na(x)) && 
+  identical(length(unique(x)), length(x))
+}

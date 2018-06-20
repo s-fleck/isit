@@ -1,5 +1,8 @@
 # isit 0.0.2.9000
 
+* Added `is_candidate_key()`
+* Added `is_blank()`
+
 
 
 
