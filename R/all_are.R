@@ -178,12 +178,13 @@ as_scalar <- function(x){
 
 
 
-#' Is Vector a Candidate Key
+#' Test if a Vector or Combination of Vectors is a Candidate Key
 #' 
-#' Checks if all elements of the atomic vector `x` are unique and not `NA` or
-#' infinite.
+#' Checks if all elements of the atomic vector `x`, or the combination of
+#' all elements of `x` if `x` is a `list`, are unique and neither `NA` or
+#' `infinite`.
 #'
-#' @param x a atomic vector
+#' @param x a atomic vector or a list of atomic vectors
 #'
 #' @return `TRUE/FALSE`
 #' @export
@@ -194,9 +195,27 @@ as_scalar <- function(x){
 #' is_candidate_key(c(1, 2, NA))
 #' is_candidate_key(c(1, 2, Inf))
 #' 
+#' td <- data.frame(
+#'   x = 1:10,
+#'   y = 1:2,
+#'   z = 1:5
+#' )
+#' 
+#' is_candidate_key(list(td$x, td$z))
+#' # a data.frame is just a special list
+#' is_candidate_key(td[, c("y", "z")])
+
 is_candidate_key <- function(x){
-  is.atomic(x) && 
-  all(!is.infinite(x)) &&
-  !any(is.na(x)) && 
-  identical(length(unique(x)), length(x))
+  
+  if (is.atomic(x)){
+    # !is.infinite instead of is.finite because x can be a character vector
+    all(!is.infinite(x)) &&
+    !any(is.na(x)) && 
+    identical(length(unique(x)), length(x))
+  } else if (is.list(x)){
+    do.call(is_equal_length, x) &&
+    all(vapply(x, function(.x) all(!is.infinite(.x)), logical(1))) &&  
+    all(vapply(x, function(.x) !any(is.na(.x)), logical(1))) &&
+    !any(duplicated(as.data.frame(x)))
+  }
 }
