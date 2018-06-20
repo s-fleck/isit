@@ -22,4 +22,13 @@ test_that("is_candidate_key works as expected", {
   expect_true(is_candidate_key(list(td$x)))
   expect_false(is_candidate_key(list(td$y)))
   expect_false(is_candidate_key(list(c(td$y, NA))))
+  
+  
+  #edge cases
+    expect_false(is_candidate_key(NULL))
+    expect_false(is_candidate_key(numeric()))
+    expect_false(is_candidate_key(list()))
+    expect_false(is_candidate_key(list(NULL, NULL)))
+    expect_false(is_candidate_key(data.frame(x = numeric(), y = numeric())))
+  
 })
