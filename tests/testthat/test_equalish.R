@@ -16,10 +16,18 @@ test_that("equalish works as expected", {
   expect_identical(reldiff(b, a), reldiff(a, b))
   expect_identical(reldiff(b, a), reldiff(-a, -b))
   expect_false(reldiff(-a, b) < 0.1)
-
+  
   expect_true(all(equalish_frac(
     c(0, 2, 3),
     c(0, 2.1, 3.1),
     tolerance = 0.1
   )))
+  
+  
+  expect_equal(
+    equalish_frac(c(10, 11, NA), c(10, 8,  NA)),
+    c(TRUE, FALSE, NA)
+  )
+  
+  
 })

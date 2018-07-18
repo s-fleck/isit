@@ -28,7 +28,7 @@ equalish <- function(x, y, tolerance = .Machine$double.eps ^ 0.5){
 
 #' @return `equalish_frac()` returns `TRUE` if the relative difference between 
 #'   `x` and `y` is smaller than `tolerance`. The relative difference is 
-#'   calculated as `abs(x - y) / max(abs(x), abs(y))`. If both `x` and `y` are 
+#'   calculated as `abs(x - y) / pmax(abs(x), abs(y))`. If both `x` and `y` are 
 #'   `0` the relative difference is not defined, but this function will still 
 #'   return `TRUE`.
 #' 
@@ -50,7 +50,7 @@ equalish_frac <- function(x, y, tolerance = .Machine$double.eps ^ 0.5){
 
 
 reldiff <- function(x, y){
-  abs(x - y) / max(abs(x), abs(y))
+  abs(x - y) / pmax(abs(x), abs(y))
 }
 
 
